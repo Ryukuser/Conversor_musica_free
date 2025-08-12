@@ -5,8 +5,8 @@ Intuito do codigo foi criado para evitar usarem sites web ou para o propio estud
 
 
 Antes de rodar o programa precisa conferir se há instalação para funcionar:
-Python 3.13 
-ffmpeg
+Python 3.13 - 
+ffmpeg -
 pip install yt_dlp
 
 
