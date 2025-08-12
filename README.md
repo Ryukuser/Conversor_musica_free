@@ -18,3 +18,25 @@ Opcional: Adicione o caminho da pasta bin às variáveis de ambiente (como expli
 Verifique a instalação:
 
 Abra um novo terminal e digite ffmpeg -version para confirmar.
+
+
+Voces podem fazer algumas alteraçoes:
+
+'preferredcodec': 'mp3',      # Converte para MP3, pode ser alterado para mp4 e baixar em formato de video.
+'preferredquality': '320',    # Qualidade do MP3 (192 kbps é padrao mas usei 320 para melhor qualidade).
+'noplaylist': False,  # Não baixa playlists, apenas vídeos individuais -> ao mudar o valor para True, ele consegue fazer downloads de playlist.
+
+abaixo vou deixar o treço completo do codigo.
+
+# Configurações para o yt-dlp
+        ydl_opts = {
+            'format': 'bestaudio/best',  # Seleciona o melhor formato de áudio
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',  # Usa FFmpeg para extrair áudio
+                'preferredcodec': 'mp3',      # Converte para MP3
+                'preferredquality': '320',    # Qualidade do MP3 (192 kbps)
+            }],
+            'outtmpl': f'{output_path}/%(title)s.%(ext)s',  # Template do nome do arquivo
+            'noplaylist': False,  # Não baixa playlists, apenas vídeos individuais 
+        }
+
